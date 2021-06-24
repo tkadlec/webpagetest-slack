@@ -4,10 +4,9 @@ const { WebClient } = require('@slack/web-api');
 const WebPageTest = require("webpagetest");
 const wptHelpers = require('../utils/wptHelpers');
 const slackHelpers = require('../utils/slackHelpers');
-const config = require('config');
 
-const token = config.slack_token;
-const wpt = new WebPageTest('www.webpagetest.org', config.wpt_api_key);
+const token = process.env.SLACK_TOKEN;
+const wpt = new WebPageTest('www.webpagetest.org', process.env.WPT_KEY);
 
 let options = {
   "firstViewOnly": true,
