@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/api_route.js');
 const http = require('http');
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,7 +14,7 @@ app.get('/', (req, res) => {
 
 app.use('/api', routes);
 let server = http.createServer(app);
-server.listen(5000,()=>{
-    console.log('Express server running on port '+5000)
+server.listen(PORT,()=>{
+    console.log('Express server running on port '+PORT)
 })
 module.exports = app;
