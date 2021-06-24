@@ -5,9 +5,10 @@ const WebPageTest = require("webpagetest");
 const wptHelpers = require('../utils/wptHelpers');
 const slackHelpers = require('../utils/slackHelpers');
 const config = require('config');
+const WPT_KEY = process.env.WPT_KEY;
 
 const token = config.slack_token;
-const wpt = new WebPageTest('www.webpagetest.org', config.wpt_api_key);
+const wpt = new WebPageTest('www.webpagetest.org', WPT_KEY);
 
 let options = {
   "firstViewOnly": true,
